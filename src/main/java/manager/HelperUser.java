@@ -15,6 +15,10 @@ public class HelperUser extends HelperBase{
         wd.findElement(By.xpath("//*[.=' Log in ']")).click();
     }
 
+    public void openRegistrationForm(){
+        wd.findElement(By.xpath("//*[.=' Sign up ']")).click();
+    }
+
     public void fillLoginForm(String email, String password){
         type(By.xpath("//input[@id='email']"), email);
         type(By.xpath("//input[@id='password']"), password);
@@ -28,6 +32,14 @@ public class HelperUser extends HelperBase{
     public void fillLoginForm(User user){
         type(By.xpath("//input[@id='email']"), user.getEmail());
         type(By.xpath("//input[@id='password']"), user.getPassword());
+    }
+
+    public void fillRegistrationForm(User user){
+        type(By.xpath("//input[@id='name']"), user.getName());
+        type(By.xpath("//input[@id='lastName']"), user.getLastName());
+        type(By.xpath("//input[@id='email']"), user.getEmail());
+        type(By.xpath("//input[@id='password']"), user.getPassword());
+        click(By.cssSelector("label[for='terms-of-use']"));
     }
 
     // method signature - type + name + parameters types

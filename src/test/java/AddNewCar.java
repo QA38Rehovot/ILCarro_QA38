@@ -28,5 +28,9 @@ public class AddNewCar extends TestBase{
                 .price("150")
                 .about("")
                 .build();
+    app.getCar().openCarForm();
+    app.getCar().fillCarForm(car);
+    app.getUser().submitLogin();
+
     }
 }
