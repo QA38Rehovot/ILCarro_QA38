@@ -21,8 +21,13 @@ public class RegistrationTests extends TestBase {
                 .withPassword("$Asdf1234");
 
         app.getUser().openRegistrationForm();
+        logger.info("openRegistrationForm invoked");
         app.getUser().fillRegistrationForm(user);
+        logger.info("fillRegistrationForm invoked");
         app.getUser().submitLogin();
+        logger.info("submitLogin invoked");
+        logger.info("registrationPositive starts with credentials: login "
+                + user.getEmail() + " & password: " + user.getPassword());
         Assert.assertTrue(app.getUser().isLoggedSuccess());
     }
     @Test
