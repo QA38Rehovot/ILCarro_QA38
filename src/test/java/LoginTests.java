@@ -1,3 +1,4 @@
+import manager.ProviderData;
 import manager.TestNgListener;
 import models.User;
 import org.testng.Assert;
@@ -46,6 +47,17 @@ public class LoginTests extends TestBase{
                 .withPassword("$Asdf1234")
                 ;
 
+        app.getUser().openLoginForm();
+        app.getUser().fillLoginForm(user);
+        app.getUser().submitLogin();
+    Assert.assertTrue(app.getUser().isLoggedSuccess());
+    }
+    @Test(dataProvider = "userDto", dataProviderClass = ProviderData.class)
+    public void loginPositiveUserDTO(User user){
+//        User user = new User()
+//                .withEmail("asd@fgh.com")
+//                .withPassword("$Asdf1234")
+//                ;
         app.getUser().openLoginForm();
         app.getUser().fillLoginForm(user);
         app.getUser().submitLogin();
