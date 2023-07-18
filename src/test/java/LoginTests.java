@@ -26,6 +26,15 @@ public class LoginTests extends TestBase{
 
     }
     @Test
+    public void loginPositiveProps(){
+
+    app.getUser().openLoginForm();
+        app.getUser().fillLoginForm(app.getEmail(), app.getPassword());
+        app.getUser().submitLogin();
+        Assert.assertTrue(app.getUser().isLoggedSuccess());
+
+    }
+    @Test
     public void loginPositiveUser(){
 //    User user = new User("asd@fgh.com","$Asdf1234");
         User user = new User()
